@@ -2,9 +2,11 @@
 
 ## Overview
 
-Gemini Flight Manager is a comprehensive backend system built using FastAPI, designed for managing and simulating flight-related operations. This system provides a robust platform for handling various aspects of flight management, including flight generation, search, and booking functionalities.
+Gemini Flight Manager is a comprehensive backend system built using FastAPI, designed for managing and simulating flight-related operations. This system provides a robust platform for handling various aspects of flight management, including flight generation, search, and booking functionalities. 
 
-In this mission, I implemented the book_flight function for enabling booking flights. Along with book_flight, a helper function was made to extract the flight ID from the flight number. In conjunction with this function, I implemented book_flight_declaration tool for the chat interface in streamlit, which was then added to Gemini's tools to pair the book_flight function with Gemini. As well, a FlightBookCriteria model was created to be paired with book_flight. Then, the LLM's response function was edited to handle a function call for both `book_flight` and `search_flight`.
+This mission combines the use of Google's Gemini with the online chat interface Streamlit to create a Flight Manager that can search for available flights, backed by an SQLite database and FastAPI Server, and book flights as well through an AI chat experience. 
+
+In this mission, I implemented the book_flight function for enabling booking flights. Along with book_flight, a helper function was made to extract the flight ID from the flight number. In conjunction with this function, I implemented book_flight_declaration tool for the chat interface in streamlit, which was then added to Gemini's tools to pair the book_flight function with Gemini so it can process the booking information to use later for book_flight and handling the response in the LLM function. As well, a FlightBookCriteria model was created to be paired with book_flight. Then, the LLM's response function was edited to handle a function call for both `book_flight` and `search_flight`.
 
 The project leverages FastAPI's efficient and easy-to-use framework to create a high-performance, scalable solution ideal for flight data management. It comes equipped with an SQLite database (flights.db) pre-populated with initial data, allowing for quick deployment and testing.
 
