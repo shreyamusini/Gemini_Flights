@@ -34,6 +34,7 @@ Start by cloning the repository to your local machine. Use the following command
 ```bash
 git clone https://github.com/your-username/your-repository.git
 cd your-repository 
+```
 
 ## Set Up a Virtual Environment (Optional but recommended)
 It's a good practice to create a virtual environment for your Python projects. This keeps your project dependencies isolated. If you have virtualenv installed, create a new environment with:
