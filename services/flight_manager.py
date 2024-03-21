@@ -286,8 +286,9 @@ def search_flights(**params):
     # Returning the JSON response
     return response.json()
 
-def get_flight_id_from_number(flight_number:str, db:Session):
+def get_flight_id_from_number(flight_number:str):
     try:
+        db = get_db
         query = db.query(Flight).filter(Flight.flight_number == flight_number)
         flight = query.first()
         if flight:
@@ -298,7 +299,7 @@ def get_flight_id_from_number(flight_number:str, db:Session):
         print(f"Error in get_flight_id_from_number: {e}")
         return None
     
-def book_flight(db: Session, **params):
+def book_flight(**params):
     """
     Sends a GET request to a FastAPI endpoint to search for flights based on various criteria.
 
@@ -311,7 +312,7 @@ def book_flight(db: Session, **params):
     # Create an instance of FlightBookCriteria from the passed arguments
     criteria = FlightBookCriteria(**params)
     #Get the Flight ID
-    flight_id = get_flight_id_from_number(criteria.flight_id, db)
+    flight_id = get_flight_id_from_number(criteria.flight_id)
     # Constructing the URL with query parameters
     url = f"http://127.0.0.1:8000/book-flight/?flight_id={flight_id}&seat_type={criteria.seat_type}&num_seats={criteria.num_seats}"
 
